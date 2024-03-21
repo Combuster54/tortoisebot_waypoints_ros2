@@ -57,6 +57,11 @@ public:
       rclcpp::spin_some(node);
     }
 
+    if (failed_test) {
+
+      return false;
+    }
+    
     float x_error = abs(goal.x - current_position.x);
     float y_error = abs(goal.y - current_position.y);
 
@@ -71,7 +76,10 @@ public:
     while (is_waiting_for_results) {
       rclcpp::spin_some(node);
     }
+    if (failed_test) {
 
+      return false;
+    }
     float goal_yaw =
         atan2(goal.y - initial_position.y, goal.x - initial_position.x);
 
@@ -159,6 +167,8 @@ private:
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_subscriber;
   bool success;
   rclcpp::TimerBase::SharedPtr timer;
+  bool failed_test = false;
+
 };
 
 TEST_F(WaypointActionServerTestFixture, Position) {
