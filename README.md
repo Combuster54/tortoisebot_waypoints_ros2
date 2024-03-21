@@ -10,7 +10,7 @@ git clone https://github.com/Combuster54/tortoisebot_waypoints_ros2 tortoisebot_
 ## build ros2_ws
 
 ```
-cd ~/ros2_ws/ && colcon build --packages-select tortoisebot_waypoints && source devel/setup.bash
+cd ~/ros2_ws/ && colcon build --packages-select tortoisebot_waypoints && source install/setup.bash
 ```
 
 ## Start your simulation enviroment
