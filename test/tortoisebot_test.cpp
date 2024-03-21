@@ -104,6 +104,7 @@ private:
 
   void result_callback(const GoalHandle::WrappedResult &result) {
     is_waiting_for_results = false;
+    set_result = result;
   }
 
   void timer_callback() {
@@ -157,7 +158,7 @@ private:
   rclcpp_action::Client<WaypointAction>::SharedPtr action_client;
 
   rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_subscriber;
-
+  bool success;
   rclcpp::TimerBase::SharedPtr timer;
 };
 
