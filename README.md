@@ -28,4 +28,11 @@ colcon test --packages-select tortoisebot_waypoints --event-handler=console_dire
 colcon test-result --verbose
 ```
 ## Failed test
+ - Go to test/tortoisebot_test.cpp in line 171:
+ - set failed_test in true
 ```
+bool failed_test = true;
+```
+ - Restart your simulation
+ - launch the test again
+ - 
